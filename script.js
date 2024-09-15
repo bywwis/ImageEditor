@@ -161,6 +161,45 @@ cropBtn.addEventListener('click', () => {
         }
 });
 
+saveButton.addEventListener('click', () => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    canvas.width = image.naturalWidth;
+    canvas.height = image.naturalHeight;
+
+    canvas.width = width; 
+    canvas.height = height;
+
+    const tempCanvas = document.createElement('canvas');
+    const tempContext = tempCanvas.getContext('2d');
+
+    tempCanvas.width = image.naturalWidth;
+    tempCanvas.height = image.naturalHeight;
+
+    tempContext.drawImage(image, 0, 0);
+
+    const brightness = brightnessSlider.value / 100;
+    const contrast = contrastSlider.value / 100;
+    const saturation = saturationSlider.value / 100;
+
+    context.filter = `brightness(${brightness}) contrast(${contrast}) saturate(${saturation})`;
+    context.drawImage(tempCanvas, 0, 0);
+
+    context.drawImage(tempCanvas, startX, startY, width, height, 0, 0, width, height);
+
+    canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'saved_image.png'; 
+        a.click(); 
+
+        URL.revokeObjectURL(url);
+    }, 'image/png');
+});
+
 function updateImage() {
     const brightness = brightnessSlider.value / 100;
     const contrast = contrastSlider.value / 100;
@@ -192,3 +231,4 @@ inputHeight.addEventListener('input', updateResize);
 function cropImage(x, y, width, height) {
     image.style.clipPath = `inset(${y}px ${image.clientWidth - (x + width)}px ${image.clientHeight - (y + height)}px ${x}px)`;
 }
+
