@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Image editor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="dashed-border" id="upload-area">
+            <div class="image-container hidden">
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <div class="button-group">
+                        <button class="edit-button">✎</button>
+                        <button class="replace-button">⟲</button>
+                        <button class="delete-button">🗑</button>
+                    </div>
+                </div>
+                <img src="" alt="Upload image">
+                <div class="loading-circle"></div>
+            </div>
+            <button class="circle-button">+</button>
+            <div class="text">Drop file to upload <br> or select file</div>
+            <div class="text1">5 MB Max, JPEG, PNG</div>
+        </div>
+    </div>
+
+    <div class="wrapper hidden">
+        <main class="main">
+        <div class="main__content">
+            <div class="avatar">
+                <img src="" class="image" alt="Upload image">
+                <canvas id="canvas" class="canvas"></canvas>
+                <div class="menu">
+                    <a id="crop-un">Crop</a>
+                    <a href="" id="resize-button">Resize</a>
+                    <a href="" id="filters-button">Adjust</a>
+                    <div class="dropdown">
+                        <a href="" id="shapes-button">Shapes</a>
+                        <div class="dropdown-content">
+                            <a href="#">Rectangle</a>
+                            <a href="#">Circle</a>
+                        </div>
+                    </div>
+                    <a href="" id="text-button">Text</a>
+                </div>
+                <div class="slidecontainer hidden">
+                    <p>Brightness</p>
+                    <input type="range" min="100" max="300" value="0" class="sliders" id="brightness" step="10">
+                    <p for="contrast-slider">Contrast</p>
+                    <input type="range" min="100" max="300" value="0" class="sliders" id="contrast" step="10">
+                     <p>Saturation</p>
+                    <input type="range" min="100" max="300" value="0" class="sliders" id="saturation" step="10">
+                </div>
+                <div class="resize hidden">
+                    <p>Height</p>
+                    <input type="text" name="height" id="input-height" class="box">
+                    <p>Width</p>
+                    <input type="text" name="width" id="input-width" class="box">
+                </div>
+                <div class="add-text hidden">
+                    <p>Input text</p>
+                    <input type="text" id="input-text" class="box">
+                    <p>Font</p>
+                    <select class="font" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+                        <option value="Arial" class="arial">Arial</option>
+                        <option value="Arial Black" class="arial-black">Arial Black</option>
+                        <option value="Times New Roman" class="times-new-roman">Times New Roman</option>
+                        <option value="Georgia" class="georgia">Georgia</option>
+                        <option value="Impact" class="impact">Impact</option>
+                    </select>
+                    <p>Size</p>
+                    <select class="size" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="24">24</option>
+                    </select>
+                    <p>Color</p>
+                    <button class="button" id="apply-text">Apply</button>
+                </div>
+                <div class="crop hidden">
+                    <label for="startX">X coordinate</label>
+                    <input type="number" id="startX" placeholder="X" class="box">
+                    <label for="startY">Y coordinate</label>
+                    <input type="number" id="startY" placeholder="Y" class="box">
+                    <label for="width">Width</label>
+                    <input type="number" id="width" placeholder="Ширина" class="box">
+                    <label for="height">Height</label>
+                    <input type="number" id="height" placeholder="Высота" class="box">
+                    <button id="cropBtn" class="button">Обрезать</button>
+                </div>
+            </div>
+                <button class="button" id="saveBtn">Save</button>
+                <button class="button" id="resetBtn">Reset</button>
+        </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
