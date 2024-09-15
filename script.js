@@ -168,9 +168,6 @@ saveButton.addEventListener('click', () => {
     canvas.width = image.naturalWidth;
     canvas.height = image.naturalHeight;
 
-    canvas.width = width; 
-    canvas.height = height;
-
     const tempCanvas = document.createElement('canvas');
     const tempContext = tempCanvas.getContext('2d');
 
@@ -185,8 +182,6 @@ saveButton.addEventListener('click', () => {
 
     context.filter = `brightness(${brightness}) contrast(${contrast}) saturate(${saturation})`;
     context.drawImage(tempCanvas, 0, 0);
-
-    context.drawImage(tempCanvas, startX, startY, width, height, 0, 0, width, height);
 
     canvas.toBlob((blob) => {
         const url = URL.createObjectURL(blob);

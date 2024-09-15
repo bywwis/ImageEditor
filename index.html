@@ -37,14 +37,6 @@
                     <a id="crop-un">Crop</a>
                     <a href="" id="resize-button">Resize</a>
                     <a href="" id="filters-button">Adjust</a>
-                    <div class="dropdown">
-                        <a href="" id="shapes-button">Shapes</a>
-                        <div class="dropdown-content">
-                            <a href="#">Rectangle</a>
-                            <a href="#">Circle</a>
-                        </div>
-                    </div>
-                    <a href="" id="text-button">Text</a>
                 </div>
                 <div class="slidecontainer hidden">
                     <p>Brightness</p>
@@ -59,33 +51,6 @@
                     <input type="text" name="height" id="input-height" class="box">
                     <p>Width</p>
                     <input type="text" name="width" id="input-width" class="box">
-                </div>
-                <div class="add-text hidden">
-                    <p>Input text</p>
-                    <input type="text" id="input-text" class="box">
-                    <p>Font</p>
-                    <select class="font" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
-                        <option value="Arial" class="arial">Arial</option>
-                        <option value="Arial Black" class="arial-black">Arial Black</option>
-                        <option value="Times New Roman" class="times-new-roman">Times New Roman</option>
-                        <option value="Georgia" class="georgia">Georgia</option>
-                        <option value="Impact" class="impact">Impact</option>
-                    </select>
-                    <p>Size</p>
-                    <select class="size" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="16">16</option>
-                        <option value="18">18</option>
-                        <option value="20">20</option>
-                        <option value="24">24</option>
-                    </select>
-                    <p>Color</p>
-                    <button class="button" id="apply-text">Apply</button>
                 </div>
                 <div class="crop hidden">
                     <label for="startX">X coordinate</label>
