@@ -26,6 +26,8 @@ const heightValue = inputHeight.value;
 const widthValue = inputWidth.value;
 
 const cropBtn = document.getElementById('cropBtn');
+const cropUn = document.getElementById('crop-un');
+const crop = document.querySelector('.crop');
 
 let currentFile;
 let imgElement; 
@@ -108,6 +110,12 @@ resizeBtn.addEventListener('click', () => {
     event.preventDefault(); 
 
     resize.classList.toggle('hidden');
+});
+
+cropUn.addEventListener('click', () => {
+    event.preventDefault(); 
+
+    crop.classList.toggle('hidden');
 });
 
 replaceButton.addEventListener('click', () => {
